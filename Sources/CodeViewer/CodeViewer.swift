@@ -69,6 +69,10 @@ public struct CodeViewer: ViewRepresentable {
             colorScheme == .dark ? webview.setTheme(darkTheme) : webview.setTheme(lightTheme)
             context.coordinator.set(colorScheme: colorScheme)
         }
+        // Actualizar el contenido si ha cambiado
+    if webview.getContent() != content {
+        webview.setContent(content)
+    }
     }
     
     // MARK: macOS
